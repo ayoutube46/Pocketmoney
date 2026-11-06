@@ -242,4 +242,61 @@ nav button.plus:active{transform:scale(.92) rotate(45deg)}
   #toast{left:calc(248px + 16px);bottom:28px}
 }
 
+/* ---------- Small phones (iPhone 7 / SE: 375 x 667) ----------
+   Sizing and spacing only. Inputs stay at 16px so iOS never zooms on focus. */
+@media (max-width:400px){
+  :root{--pad:12px;--r-card:16px;--r-ctl:11px}
+  html,body{font-size:13px}
+  h2{font-size:16px;margin-bottom:10px}
+  #view{padding-top:calc(10px + env(safe-area-inset-top,0px));padding-bottom:84px}
+  .top{margin:0 2px 12px}.top h1{font-size:20px}
+  .round{width:38px;height:38px;font-size:16px}
+  .card{padding:13px;margin-bottom:10px}
+  .hero{padding:15px 14px 12px;border-radius:20px;margin-bottom:10px}
+  .hero::after{width:140px;height:140px;right:-44px;top:-52px}
+  .hero .big{font-size:29px;margin:6px 0 2px}
+  .meter{margin:10px 0 8px}
+  .strip{margin-top:12px}.d{padding:0 2px}.d .bar{height:38px}
+  .d b{margin-top:4px;font-size:11px}.d small{font-size:9.5px}
+  .tiles{margin:0 -3px 10px}
+  .tile{margin:0 3px;padding:10px 2px;font-size:11px;border-radius:14px}
+  .tile span{width:34px;height:34px;margin-bottom:6px;font-size:18px}
+  .sec{margin:16px 4px 8px}
+  .pc{flex-basis:120px;margin-right:8px;padding:11px}
+  .pc .em{width:30px;height:30px;font-size:16px;margin-bottom:8px}
+  .pc .v{font-size:14px}
+  .item{padding:9px 10px;margin-bottom:6px}
+  .item .em{flex-basis:34px;width:34px;height:34px;margin-right:10px;font-size:17px}
+  .item .t span{font-size:12.5px}.item .amt{font-size:12.5px;margin-left:6px}
+  .day{margin:14px 4px 6px}
+  .chip{min-height:36px;padding:0 11px;font-size:12.5px}
+  .btn{min-height:44px;font-size:14.5px}.btn.sm2{min-height:40px}
+  input,select{min-height:42px;padding:8px 12px;margin-bottom:8px}
+  .lb{margin-bottom:5px}
+  #sheet .box{padding:4px 14px calc(14px + env(safe-area-inset-bottom,0px));max-height:82vh;border-radius:22px 22px 0 0}
+  .grab{margin:2px auto 8px;padding:8px 40px}
+  .ad{font-size:32px;margin:0 0 6px}
+  .kp{margin:0 -3px 8px}
+  .kp button{flex-basis:calc(33.33% - 6px);margin:3px;height:40px;font-size:17px}
+  .dr{padding:10px 0}
+  .dhead{padding-bottom:10px}.dhead .em{width:50px;height:50px;font-size:26px}
+  .dhead .amt{font-size:23px;margin-top:8px}
+  .menu{padding:10px;margin-bottom:6px}
+  .menu .em{flex-basis:38px;width:38px;height:38px;margin-right:10px;font-size:19px}
+  .pal button{height:46px}
+  .nudge{padding:10px 12px;margin-bottom:10px}
+  .tr{margin-bottom:12px}
+  nav button{height:50px;font-size:10px}
+  nav button span{width:42px;height:24px;font-size:16px;margin-bottom:1px}
+  nav button.plus{flex-basis:50px;height:50px;margin:0 4px 10px;border-radius:17px;font-size:26px}
+  #toast{left:12px;right:12px;bottom:64px;padding:10px 14px}
+}
+
+/* Home-screen app on a phone without a notch (iPhone 7): the status bar overlaps
+   the page but reports a 0 safe-area inset, so reserve its 20px ourselves. */
+@media (display-mode:standalone) and (max-width:640px){
+  #view{padding-top:calc(10px + max(env(safe-area-inset-top,0px),20px))}
+  [data-p=sensei] body::before,[data-p=arctic] body::before{height:max(env(safe-area-inset-top,0px),20px)}
+}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
